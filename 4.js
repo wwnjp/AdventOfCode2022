@@ -68,6 +68,10 @@ let numOverlaps2 = 0;
 const i = (require('fs')).readFileSync('./inputs/4.txt', 'utf-8').trim().split('\n')
    .forEach(_ => {
       // Step 1: Convert input string from a-b,x-y into [a, b, x, y]
+      // NOTE: I added the .flat() for simplicity in referencing values
+      // but an optimization could be to keep the values in a nested array like
+      // [ [a, b], [x, y] ]
+      // and compare then via [0][0], [0][1], etc
       const s = _.split(',').map(s => s.split('-').map(intify)).flat();
 
       // Step 2: Find the ones where 1 set is completely inside the other
