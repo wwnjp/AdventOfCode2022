@@ -1,25 +1,23 @@
+/*
+--- Part Two ---
+
+The Elf finishes helping with the tent and sneaks back over to you. "Anyway, the second column says how the round needs to end: X means you need to lose, Y means you need to end the round in a draw, and Z means you need to win. Good luck!"
+
+The total score is still calculated in the same way, but now you need to figure out what shape to choose so the round ends as indicated. The example above now goes like this:
+
+    In the first round, your opponent will choose Rock (A), and you need the round to end in a draw (Y), so you also choose Rock. This gives you a score of 1 + 3 = 4.
+    In the second round, your opponent will choose Paper (B), and you choose Rock so you lose (X) with a score of 1 + 0 = 1.
+    In the third round, you will defeat your opponent's Scissors with Rock for a score of 1 + 6 = 7.
+
+Now that you're correctly decrypting the ultra top secret strategy guide, you would get a total score of 12.
+
+Following the Elf's instructions for the second column, what would your total score be if everything goes exactly according to your strategy guide?
+
+*/
+
 const intify = _ => parseInt(_, 10),
    sum = _ => _.reduce((a, i) => a + i, 0),
    sortNums = (a, b) => a < b ? -1 : 1;
-
-// ROCK PAPER SCISSORS
-// A - Rock     (1pt)
-// B - Paper    (2pt)
-// C - Scissors (3pt)
-//
-// X - Loss    (0pts)
-// Y - Draw    (3pts)
-// Z - Win     (6pts)
-//
-// 0pts - loss
-// 3pts - draw
-// 6pts - win
-// 
-// A = X    B > X    C < X
-// A < Y    B = Y    C > Y
-// A > Z    B < Z    C = Z
-
-
 
 const i = (require('fs')).readFileSync('./inputs/2.txt', 'utf-8').trim()
    .split('\n')
